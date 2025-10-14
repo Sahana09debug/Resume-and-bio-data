@@ -1,0 +1,231 @@
+/* --- Global Styles --- */
+:root {
+    --primary-color: #0c0c0c; 
+    --secondary-color: #6c757d; 
+    --text-color: #333;
+    --background-color: #f4f7f6;
+    --card-background: #fff;
+    --border-color: #e9ecef;
+    --font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 20px;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.main-header p {
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    border-bottom-color: white;
+}
+
+/* --- Card Structure --- */
+.card {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* --- Specific Section Styles (Resume) --- */
+.job, .degree {
+    margin-bottom: 20px;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.job h3, .degree h3 {
+    margin: 0 0 5px 0;
+    color: var(--text-color);
+    font-size: 1.2em;
+}
+
+.company, .school {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.skills-list li strong {
+    display: inline-block;
+    min-width: 100px;
+    color: var(--primary-color);
+}
+
+/* --- Bio-data Specific Styles --- */
+.personal-details table, .address-details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.personal-details th, .address-details th,
+.personal-details td, .address-details td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.personal-details th, .address-details th {
+    width: 35%;
+    background-color: #f8f9fa;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.profile-photo {
+    float: right;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 20px;
+    border: 3px solid var(--primary-color);
+}
+
+.declaration {
+    text-align: center;
+}
+
+.signature p {
+    margin-top: 15px;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.sign-line {
+    margin-top: 50px !important;
+    border-top: 1px dashed var(--secondary-color);
+    display: inline-block;
+    padding-top: 5px;
+}
+
+/* --- Collapsible (JavaScript) Styling --- */
+.collapsible-content {
+    /* Initially visible, JavaScript will manage toggling */
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.collapsible-content.hidden {
+    max-height: 0;
+}
+
+.collapsible button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+    .container {
+        grid-template-columns: 1fr; /* Stack all sections */
+    }
+    .profile-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 15px auto;
+    }
+    .personal-details th, .address-details th,
+    .personal-details td, .address-details td {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    .personal-details th::after {
+        content: ":";
+        float: right;
+    }
+}
